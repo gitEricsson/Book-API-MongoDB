@@ -1,0 +1,14 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "jsRules": {},
+  "rules": {
+    "no-console": false,
+    "max-line-length": {
+      "options": [120]
+    },
+    "semicolon": [true, "always"]
+  },
+
+  "rulesDirectory": []
+}
