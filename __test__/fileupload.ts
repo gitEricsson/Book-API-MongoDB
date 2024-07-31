@@ -51,6 +51,6 @@ export class FileService {
       limits: { fileSize: 1024 * 1024 * FILE_SIZE },
       fileFilter: this.fileUtil.fileValidation(validationFn)
     });
-    return upload.array('files', 5);
+    return upload.single('file');
   };
 }

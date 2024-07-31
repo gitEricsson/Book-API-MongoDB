@@ -1,9 +1,9 @@
 import { FileService, StorageType } from './fileupload';
 import multer from 'multer';
 
-// Mocking multer file upload service
+// Mocking multer file upload for single file
 const mMulter = {
-  array: jest.fn()
+  single: jest.fn()
 };
 
 jest.mock('multer', () => {
@@ -34,6 +34,6 @@ describe('It should successfully upload an image', () => {
     const fileService = new FileService();
     fileService.uploadFiles(StorageType.DISK, validationFn);
     expect(multer).toBeCalled();
-    expect(mMulter.array).toHaveBeenCalledWith('files', 5);
+    expect(mMulter.single).toHaveBeenCalledWith('file');
   });
 });
