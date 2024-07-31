@@ -5,8 +5,6 @@ import catchAsync from './../utils/catchAsync';
 import multer, { FileFilterCallback } from 'multer';
 import sharp from 'sharp';
 
-// let Books: Array<BookModel> = [];
-
 class BookController {
   // SAVING PHOTO AS A MEMORY/BUFFER
   multerStorage = multer.memoryStorage();
@@ -16,7 +14,6 @@ class BookController {
     file: Express.Multer.File,
     cb: FileFilterCallback
   ): void => {
-    console.log('tttttttt');
     if (file.mimetype.startsWith('image')) {
       cb(null, true);
     } else {
