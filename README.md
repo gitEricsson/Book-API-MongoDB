@@ -8,7 +8,7 @@ A RESTful API for managing a collection of books. The API supports basic CRUD (C
 
 ### Get All Books
 
-- **URL:** `/api/books`
+- **URL:** `localhost:port/api/books`
 - **Method:** `GET`
 - **Description:** Retrieve a list of all books.
 - **Response:**
@@ -16,7 +16,7 @@ A RESTful API for managing a collection of books. The API supports basic CRUD (C
 
 ### Create a New Book
 
-- **URL:** `/api/books`
+- **URL:** `localhost:port/api/books`
 - **Method:** `POST`
 - **Description:** Create a new book.
 - **Request Body:**
@@ -29,7 +29,7 @@ A RESTful API for managing a collection of books. The API supports basic CRUD (C
 
 ### Get a Book by ID
 
-- **URL:** `/api/books/:id`
+- **URL:** `localhost:port/api/books/:id`
 - **Method:** `GET`
 - **Description:** Retrieve details of a specific book by ID.
 - **Response:**
@@ -37,7 +37,7 @@ A RESTful API for managing a collection of books. The API supports basic CRUD (C
 
 ### Update a Book by ID
 
-- **URL:** `/api/books/:id`
+- **URL:** `localhost:port/api/books/:id`
 - **Method:** `PATCH`
 - **Description:** Update the details of a specific book by ID.
 - **Request Body:** Any book field that needs to be updated.
@@ -46,7 +46,7 @@ A RESTful API for managing a collection of books. The API supports basic CRUD (C
 
 ### Delete a Book by ID
 
-- **URL:** `/api/books/:id`
+- **URL:** `localhost:port/api/books/:id`
 - **Method:** `DELETE`
 - **Description:** Delete a specific book by its ID.
 - **Response:**
@@ -54,7 +54,7 @@ A RESTful API for managing a collection of books. The API supports basic CRUD (C
 
 ### Update Book Cover Image
 
-- **URL:** `/api/books/cover-image/:id`
+- **URL:** `localhost:port/api/books/cover-image/:id`
 - **Method:** `PATCH`
 - **Description:** Update the cover image of a specific book.
 - **Request:** Multipart form data with the key `photo` and the image file.

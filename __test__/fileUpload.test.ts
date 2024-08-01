@@ -1,7 +1,7 @@
 import { FileService, StorageType } from './fileupload';
 import multer from 'multer';
 
-// Mocking multer file upload for single file
+// Mocking multer file upload for single file on jest & supertest
 const mMulter = {
   single: jest.fn()
 };

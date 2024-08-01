@@ -4,7 +4,7 @@
   "description": "API task",
   "scripts": {
     "test": "jest",
-    "tests": "mocha --require ts-node/register --require tsconfig-paths/register test/**/*.test.ts",
+    "tests": "mocha --require ts-node/register --require tsconfig-paths/register test/**/*.ts",
     "start": "tsc && node dist/server.js",
     "dev": "nodemon server.ts"
   },

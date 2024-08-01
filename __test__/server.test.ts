@@ -25,6 +25,7 @@ describe('Books API', () => {
     ISBN: '978-0385474542'
   };
 
+  // create mongoDB client for unit & integration test
   beforeAll(async () => {
     mongoServer = await MongoMemoryServer.create();
     const dbUri = await mongoServer.getUri();
@@ -40,6 +41,7 @@ describe('Books API', () => {
       });
   });
 
+  // close mongoDB client for unit & integration test
   afterAll(async () => {
     await mongoose.connection.dropDatabase();
     await mongoose.disconnect();
@@ -92,25 +94,6 @@ describe('Books API', () => {
     expect(res.statusCode).toEqual(200);
     expect(res.body.status).toEqual('success');
   });
-
-  // it('It should successfully upload an image', async () => {
-  // const initialRes = await request(app)
-  //   .post('/api/books')
-  //   .send(book);
-
-  // const bookId = initialRes.body.data.data.id;
-  // const res = await request(app)
-  //   .post(`/api/books/cover-image/${bookId}`)
-  //   .set('content-type', 'multipart/form-data')
-  //   .attach(
-  //     'image',
-  //     fs.readFileSync(`${__dirname}/imageTest.jpg`),
-  //     '__test__/imageTest.jpg'
-  //   );
-
-  // expect(res.statusCode).toEqual(200);
-  // expect(res.body.status).toEqual('success');
-  // });
 
   it("It should delete a specific book by it's ID", async () => {
     const initialRes = await request(app)
