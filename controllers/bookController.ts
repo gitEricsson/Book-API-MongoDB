@@ -4,6 +4,7 @@ import { Request, Response, NextFunction, Express } from 'express';
 import catchAsync from './../utils/catchAsync';
 import multer, { FileFilterCallback } from 'multer';
 import sharp from 'sharp';
+import cloudinary from 'cloudinary';
 
 class BookController {
   // SAVING PHOTO AS A MEMORY/BUFFER
@@ -133,18 +134,26 @@ class BookController {
 
   public resizeCoverPhoto = catchAsync(
     async (req: Request, res: Response, next: NextFunction) => {
-      console.log(req.file);
       if (!req.file) return next();
 
+      // Local Storage
+      /*
       req.file.filename = `book-${req.params.id}-${Date.now()}.jpeg`;
-
-      console.log(req.params.id);
 
       await sharp(req.file.buffer)
         .resize(500, 500)
         .toFormat('jpeg')
         .jpeg({ quality: 90 })
         .toFile(`public/img/${req.file.filename}`);
+*/
+
+      // Upload to Cloudinary
+      const result = await cloudinary.v2.uploader.upload(req.file.buffer, {
+        folder: 'book_covers',
+        transformation: [{ width: 500, height: 500, crop: 'limit' }]
+      });
+
+      req.file.filename = result.secure_url;
 
       next();
     }
